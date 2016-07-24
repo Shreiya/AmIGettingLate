@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="index.css" media="screen" title="no title" charset="utf-8">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  </head>
+  <body>
+    <h1>Am I going to be late again?</h1>
+    <input id="inputRadius" type="text" class="form-control" placeholder="How far do you feel like going?">
+    <button type="button" name="findme" id="findme">Find me!</button>
+    <div>
+30.000m <input type="radio" name="radiusBtns" id="radioBtn1" onclick="calcRadius(30000);" value="30" /><br />
+60.000m<input type="radio" name="radiusBtns"  id="radioBtn2" onclick="calcRadius(60000);" value="60" /><br />
+90.000m<input type="radio" name="radiusBtns"  id="radioBtn3" onclick="calcRadius(90000);" value="90" />
+</div>
+    <div id="whereami">
+      <div id = "map">
+      </div>
+     </div>
+     <button id="trafficToggle">Toggle Traffic Layer</button>
+     <script type="text/javascript" src="index.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30BtAT-lBL3irQvEz_0w-yxeQNwz156o&callback=initMap" async defer></script>
+     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"> -->
+     <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>-->
+
+  </body>
+</html>
