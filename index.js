@@ -51,15 +51,15 @@ function initMap() {
            center: position,
            zoom: 15
        });
-       var marker = new google.maps.Marker({
+       var marker1 = new google.maps.Marker({
            position: position,
            map: map,
-           draggable: true,
-           animation: google.maps.Animation.DROP,
+           draggable: false,
+           animation: google.maps.Animation.BOUNCE,
            title:"Hello World!"
        });
        // To add the marker to the map, call setMap();
-       marker.setMap(map);
+       marker1.setMap(map);
 
 
 
@@ -138,7 +138,7 @@ function initMap() {
       return;
     } else {
 
-      deleteMarkers();
+      // deleteMarkers();
 
       var geocoder = new google.maps.Geocoder;
 
@@ -162,12 +162,15 @@ function initMap() {
                 var destinationList = response.destinationAddresses;
                 var outputDiv = document.getElementById('output');
                 outputDiv.innerHTML = '';
-                //deleteMarkers(markersArray);
+                deleteMarkers(markersArray);
 
                 var showGeocodedAddressOnMap = function(asDestination) {
                   //var icon = asDestination ? destinationIcon : originIcon;
                   return function(results, status) {
                     if (status === google.maps.GeocoderStatus.OK) {
+
+                      deleteMarkers();
+
                       map.fitBounds(bounds.extend(results[0].geometry.location));
                       markersArray.push(new google.maps.Marker({
                         map: map,
