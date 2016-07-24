@@ -47,6 +47,13 @@
 <html>
   <head>
     <title>Am I getting late again?</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+
     <link rel="stylesheet" href="index.css" media="screen" title="no title" charset="utf-8">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
   </head>
@@ -58,6 +65,10 @@
     <input id="destination-input" class="controls" type="text"
         placeholder="Enter a destination location">
     </div>
+    <!-- Button trigger modal -->
+<button id="directionsButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Show me Directions
+</button>
     <div id="mode-selector" class="controls">
       <input type="radio" name="type" id="changemode-walking" checked="checked">
       <label for="changemode-walking">Walking</label>
@@ -70,13 +81,39 @@
     </div>
 
     <div id="map"></div>
-    <div id="output"></div>
+    <div id="directionsModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- <div id="output">
+</div> -->
+<div id="output">
+  <button id="saveMe">save</button>
+</div>
+<div>
+</div>
+
 
 
 
 
     <script type="text/javascript" src="index.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30BtAT-lBL3irQvEz_0w-yxeQNwz156o&callback=initMap&libraries=places" async defer></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
 </html>
