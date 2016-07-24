@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -12,20 +12,71 @@
     <input id="inputRadius" type="text" class="form-control" placeholder="How far do you feel like going?">
     <button type="button" name="findme" id="findme">Find me!</button>
     <div>
-30.000m <input type="radio" name="radiusBtns" id="radioBtn1" onclick="calcRadius(30000);" value="30" /><br />
-60.000m<input type="radio" name="radiusBtns"  id="radioBtn2" onclick="calcRadius(60000);" value="60" /><br />
-90.000m<input type="radio" name="radiusBtns"  id="radioBtn3" onclick="calcRadius(90000);" value="90" />
+    <button id="screenshot">Take a screenshot!</button>
 </div>
     <div id="whereami">
       <div id = "map">
       </div>
      </div>
      <button id="trafficToggle">Toggle Traffic Layer</button>
+     <button id="transitToggle">Toggle Transit Layer</button>
+     <button id="bikeToggle">Toggle Bike Layer</button>
+     <div id="img"></div>
+
      <script type="text/javascript" src="index.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30BtAT-lBL3irQvEz_0w-yxeQNwz156o&callback=initMap" async defer></script>
-     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"> -->
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30BtAT-lBL3irQvEz_0w-yxeQNwz156o&callback=initMap&libraries=places" async defer></script>
+     <script src="./node_modules/htmlshot/index.js"></script>
+
+     </script>
+     <! <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"> -->
      <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>-->
 
+  <!-- </body>
+</html>-->
+
+
+
+
+
+<!-- Replace the value of the key parameter with your own API key. -->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&libraries=places&callback=initMap"
+        async defer></script>-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Am I getting late again?</title>
+    <link rel="stylesheet" href="index.css" media="screen" title="no title" charset="utf-8">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div id="modal1">
+    <input id="origin-input" class="controls" type="text"
+        placeholder="Enter an origin location">
+
+    <input id="destination-input" class="controls" type="text"
+        placeholder="Enter a destination location">
+    </div>
+    <div id="mode-selector" class="controls">
+      <input type="radio" name="type" id="changemode-walking" checked="checked">
+      <label for="changemode-walking">Walking</label>
+
+      <input type="radio" name="type" id="changemode-transit">
+      <label for="changemode-transit">Transit</label>
+
+      <input type="radio" name="type" id="changemode-driving">
+      <label for="changemode-driving">Driving</label>
+    </div>
+
+    <div id="map"></div>
+    <div id="output"></div>
+
+
+
+
+    <script type="text/javascript" src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30BtAT-lBL3irQvEz_0w-yxeQNwz156o&callback=initMap&libraries=places" async defer></script>
   </body>
 </html>
