@@ -4,8 +4,7 @@ html, body {
   padding: 0;
 }
 #map {
-  height: 500px;
-  width: 900px;
+  height: 400px;
 }
 .controls {
   margin-top: 10px;
@@ -47,8 +46,3 @@ html, body {
   font-size: 13px;
   font-weight: 300;
 }
-/*#output {
-float: right;
-width: 150px;
-padding-left: 2%;
-}*/

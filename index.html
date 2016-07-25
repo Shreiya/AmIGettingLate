@@ -1,47 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="index.css" media="screen" title="no title" charset="utf-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-  </head>
-  <body>
-    <h1>Am I going to be late again?</h1>
-    <input id="inputRadius" type="text" class="form-control" placeholder="How far do you feel like going?">
-    <button type="button" name="findme" id="findme">Find me!</button>
-    <div>
-    <button id="screenshot">Take a screenshot!</button>
-</div>
-    <div id="whereami">
-      <div id = "map">
-      </div>
-     </div>
-     <button id="trafficToggle">Toggle Traffic Layer</button>
-     <button id="transitToggle">Toggle Transit Layer</button>
-     <button id="bikeToggle">Toggle Bike Layer</button>
-     <div id="img"></div>
-
-     <script type="text/javascript" src="index.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30BtAT-lBL3irQvEz_0w-yxeQNwz156o&callback=initMap&libraries=places" async defer></script>
-     <script src="./node_modules/htmlshot/index.js"></script>
-
-     </script>
-     <! <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"> -->
-     <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>-->
-
-  <!-- </body>
-</html>-->
-
-
-
-
-
-<!-- Replace the value of the key parameter with your own API key. -->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&libraries=places&callback=initMap"
-        async defer></script>-->
 
 <!DOCTYPE html>
 <html>
@@ -58,17 +14,37 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <div id="modal1">
-    <input id="origin-input" class="controls" type="text"
-        placeholder="Enter an origin location">
+    <nav class="navbar navbar-inverse">
+  
+</nav>
+    <div class="modal fade" id="askModal" role="dialog">
+    <div class="modal-dialog">
 
-    <input id="destination-input" class="controls" type="text"
-        placeholder="Enter a destination location">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Am I getting late again?</h4>
+        </div>
+        <div class="modal-body">
+          <p>Of course you are.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
     </div>
+  </div>
+  <div id="modal1">
+  <input id="origin-input" class="controls" type="text"
+      placeholder="Enter an origin location">
+
+  <input id="destination-input" class="controls" type="text"
+      placeholder="Enter a destination location">
+  </div>
     <!-- Button trigger modal -->
-<button id="directionsButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Show me Directions
-</button>
+
     <div id="mode-selector" class="controls">
       <input type="radio" name="type" id="changemode-walking" checked="checked">
       <label for="changemode-walking">Walking</label>
@@ -81,37 +57,14 @@
     </div>
 
     <div id="map"></div>
-    <div id="directionsModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
+    <button id="directionsButton" type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#myModal">
+      Show me Directions
+    </button>
+<div class="panel-footer"><div id="output"></div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- <div id="output">
-</div> -->
-<div id="output">
-  <button id="saveMe">save</button>
 </div>
-<div>
-</div>
-
-
-
-
-
-    <script type="text/javascript" src="index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30BtAT-lBL3irQvEz_0w-yxeQNwz156o&callback=initMap&libraries=places" async defer></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
