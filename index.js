@@ -1,11 +1,17 @@
 console.log('i am alive');
 
-$(document).ready(function(){
-    //$("#myBtn").click(function(){
-        $("#askModal").modal();
-    });
+// $(document).ready(function(){
+//     //$("#myBtn").click(function(){
+//         $("#askModal").modal();
+//     });
 
-
+// var url = "http://localhost:3000"; //For Local Dev
+var url = 'https://dry-caverns-14430.herokuapp.com/' //For Heroku
+var originList;
+var destinationList;
+var resultDistance;
+var resultDuration;
+var container = document.getElementById('container');
 
 var options = {
     enableHighAccuracy: true,
@@ -28,12 +34,12 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-function deleteMarkers(markersArray) {
-    for (var i = 0; i < markersArray.length; i++) {
-        markersArray[i].setMap(null);
-    }
-    markersArray = [];
-}
+// function deleteMarkers(markersArray) {
+//     for (var i = 0; i < markersArray.length; i++) {
+//         markersArray[i].setMap(null);
+//     }
+//     markersArray = [];
+// }
 
 function initMap() {
 
@@ -165,19 +171,19 @@ function initMap() {
                     if (status !== google.maps.DistanceMatrixStatus.OK) {
                         alert('Error was: ' + status);
                     } else {
-                        var originList = response.originAddresses;
-                        var destinationList = response.destinationAddresses;
+                        window.originList = response.originAddresses;
+                        window.destinationList = response.destinationAddresses;
                         var outputDiv = document.getElementById('output');
                         var saveButton = document.getElementById('saveMe');
                         //outputDiv.innerHTML = '';
-                        deleteMarkers(markersArray);
+                        // deleteMarkers(markersArray);
 
                         var showGeocodedAddressOnMap = function(asDestination) {
                             //var icon = asDestination ? destinationIcon : originIcon;
                             return function(results, status) {
                                 if (status === google.maps.GeocoderStatus.OK) {
 
-                                    deleteMarkers();
+                                    // deleteMarkers();
 
                                     map.fitBounds(bounds.extend(results[0].geometry.location));
                                     markersArray.push(new google.maps.Marker({
@@ -206,9 +212,16 @@ function initMap() {
                                             'address': destinationList[j]
                                         },
                                         showGeocodedAddressOnMap(true));
-                                    var directionsInfo = document.createTextNode(originList[i] + ' to ' + destinationList[j] +
-                                        ': ' + results[j].distance.text + ' in ' +
-                                        results[j].duration.text);
+                                        outputDiv.innerHTML = "";
+                                        window.resultDistance = results[j].distance.text;
+                                        window.resultDuration = results[j].duration.text;
+                                        console.log(results[j].distance.text);
+                                        console.log(results[j].duration.text);
+                                        console.log(originList);
+                                        console.log(destinationList);
+                                    var directionsInfo = document.createTextNode("So to get from " + originList[i] + " to " + destinationList[i] +
+                                    ", it's going to take you " + results[j].duration.text + " since you're traveling "
+                                    + results[j].distance.text + ".");
                                     outputDiv.appendChild(directionsInfo);
                                 }
 
@@ -217,14 +230,7 @@ function initMap() {
 
                         var directions = document.getElementById('directionsButton');
                         directions.addEventListener('click',showDirections());
-
-
-
-
-
                         //closing the event listener
-
-
 
                     }
                 });
@@ -248,22 +254,114 @@ function initMap() {
 
         }
 
+
+
+    var saveBtn = document.getElementById('save');
+    var container = document.getElementsByName('container');
+
+    saveBtn.addEventListener('click', function(ev){
+      ev.preventDefault();
+      console.log(resultDistance);
+      console.log(resultDuration);
+      console.log(originList);
+      console.log(destinationList);
+      container.innerHTML = "";
+
+      var data = {
+        origin : originList,
+        destination : destinationList,
+        time : resultDuration,
+        distance : resultDistance,
+      };
+
+      $.ajax({
+        url: url + "/possible-routes",
+        method: "POST",
+        data: data,
+        dataType: "json"
+      }).done(function (response){
+        console.log("response: ",response);
+
+
+
+      })
+
+    });//closing saveBtn
+
+    var showBtn = document.getElementById('showAll');
+    showBtn.addEventListener('click', function(){
+      container.innerHTML = "";
+      $.ajax({
+  url: url + '/gettingLate',
+  dataType: 'json'
+}).done(function(response){
+  console.log("response: ", response);
+
+  var container = document.getElementById('container');
+  for (var i = 0; i < response.length; i++) {
+          var liText = response[i];
+          var dest = liText.destination[0];
+          var orig = liText.origin[0];
+          var dist = liText.distance;
+          var time = liText.time;
+          console.log(orig);
+          console.log(dest);
+          console.log(dist);
+          console.log(time);
+          var routeInfo = document.createTextNode(orig + " to " + dest + " in " + time + " covering " + dist + ".");
+          console.log(routeInfo);
+          var newDiv = document.createElement('div');
+          newDiv.appendChild(routeInfo);
+          container.appendChild(newDiv);
+
+
+          // newDiv.appendChild
+
+          // console.log(finalString);
+          // var newDiv = document.createElement('div');
+          // var deleteBut = document.createElement('button');
+          // newDiv.appendChild(deleteBut);
+          //
+          // container.appendChild(newDiv);
+          // var finalString = document.createTextNode(finalDestination + finalDistance);
+          // container.appendChild(finalString);
+//});
+          // container.appendChild(document.createTextNode(liText));
+        }
+      });
+
+
+    });//closing showBtn
+
+
     });//closing the getting current position function
 
 }; //closing init map
 
-// var saveButton = document.getElementById('saveMe');
-// saveButton.addEventListener('click', function(){
-//   console.log("The save button is working!");
+// var saveBtn = document.getElementById('save');
+// var container = document.getElementsByName('container');
 //
-//   var data = {directionsInfo};
+// saveBtn.addEventListener('click', function(ev){
+//   ev.preventDefault();
+//   container.innerHTML = "";
 //
-//   $.post({
-//           url: 'http://localhost:3000/gettingLate',
-//           data: data,
-//           dataType: 'json'
-//       })
-//       .don(function(data) {
-//           console.log(data);
-//       });
-// })
+//   var data = {
+//     origin : originList,
+//     destination : destinationList,
+//     time : results[j].duration.text,
+//     distance : results[j].distance.text,
+//   };
+//
+//   $.ajax({
+//     url: url + "/possible-routes",
+//     method: "POST",
+//     data: data,
+//     dataType: "json"
+//   }).done(function (response){
+//     console.log("response: ",response);
+//
+//     container.innerHTML = "";
+//
+//   })
+//
+// });//closing saveBtn
