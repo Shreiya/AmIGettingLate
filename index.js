@@ -318,11 +318,12 @@ function initMap() {
           newDiv.appendChild(routeInfo);
           newDiv.appendChild(deleteBtn);
           container.appendChild(newDiv);
+
           $(document).ready(function(){
               $("#showBtn").click(function(){
                   $("#infoDiv").modal();
               });
-      }
+      });
 
   deleteBtn.addEventListener('click', function(){
     newDiv.innerHTML = "";
