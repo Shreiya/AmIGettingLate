@@ -330,6 +330,8 @@ function initMap() {
                   $("#infoDiv").modal();
               //});
       });
+    });
+  });
 
   deleteBtn.addEventListener('click', function(){
     newDiv.innerHTML = "";
@@ -345,7 +347,7 @@ function initMap() {
   }); // end delete button
 };
 
-  });
+
 
 
           // newDiv.appendChild
@@ -360,7 +362,7 @@ function initMap() {
           // container.appendChild(finalString);
 
           // container.appendChild(document.createTextNode(liText));
-        });
+
   });
 };
 
