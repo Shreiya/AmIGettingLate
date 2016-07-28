@@ -224,9 +224,9 @@ function initMap() {
 
                             }
                         };
-
-                        var directions = document.getElementById('directionsButton');
-                        directions.addEventListener('click',showDirections());
+                          showDirections();
+                        // var directions = document.getElementById('directionsButton');
+                        // directions.addEventListener('click',showDirections());
                         //closing the event listener
 
                     }
