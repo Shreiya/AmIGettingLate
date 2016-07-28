@@ -12,7 +12,7 @@ var container = document.getElementById('container');
 
 var options = {
     enableHighAccuracy: true,
-    timeout: 5000,
+    timeout: 5000,container
     maximumAge: 0
 };
 
