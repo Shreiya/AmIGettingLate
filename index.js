@@ -264,7 +264,7 @@ function initMap() {
       console.log(destinationList);
       container.innerHTML = "";
 
-      var data = {
+      window.data = {
         origin : originList,
         destination : destinationList,
         time : resultDuration,
