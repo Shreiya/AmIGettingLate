@@ -362,7 +362,7 @@ function initMap() {
           // container.appendChild(document.createTextNode(liText));
         });
   });
-});
+
 };
 
 
