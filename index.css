@@ -49,4 +49,6 @@ html, body {
 
 .modal-content {
   margin: 0 auto;
+  width:inherit;
+  height:inherit;
 }
