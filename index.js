@@ -5,8 +5,8 @@ console.log('i am alive');
 //         $("#askModal").modal();
 //     });
 
-var url = "http://localhost:3000"; //For Local Dev
-// var url = 'https://dry-caverns-14430.herokuapp.com' //For Heroku
+// var url = "http://localhost:3000"; //For Local Dev
+var url = 'https://dry-caverns-14430.herokuapp.com' //For Heroku
 var originList;
 var destinationList;
 var resultDistance;
