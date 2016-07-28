@@ -314,6 +314,7 @@ function initMap() {
           var routeInfo = document.createTextNode(orig + " to " + dest + " in " + time + " covering " + dist + ".");
           console.log(routeInfo);
           var deleteBtn = document.createElement('button');
+          deleteBtn.className = "delete";
           var newDiv = document.createElement('div');
           newDiv.appendChild(routeInfo);
           newDiv.appendChild(deleteBtn);
