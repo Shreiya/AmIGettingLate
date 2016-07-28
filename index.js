@@ -220,6 +220,11 @@ function initMap() {
                                     ", it's going to take you " + results[j].duration.text + " since you're traveling "
                                     + results[j].distance.text + ".");
                                     outputDiv.appendChild(directionsInfo);
+
+                                    $(document).ready(function(){
+                                        //$("#myBtn").click(function(){
+                                            $("#routeInfo").modal();
+                                        });
                                 }
 
                             }
