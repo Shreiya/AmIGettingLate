@@ -1,9 +1,6 @@
 console.log('i am alive');
 
-// $(document).ready(function(){
-//     //$("#myBtn").click(function(){
-//         $("#askModal").modal();
-//     });
+
 
 // var url = "http://localhost:3000"; //For Local Dev
 var url = 'https://dry-caverns-14430.herokuapp.com' //For Heroku
@@ -347,6 +344,7 @@ function initMap() {
           // container.appendChild(document.createTextNode(liText));
         });
       };
+
 
 
     //closing showBtn
