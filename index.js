@@ -39,6 +39,11 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 //     markersArray = [];
 // }
 
+$(document).ready(function(){
+    //$("#myBtn").click(function(){
+        $("#askModal").modal();
+    });
+
 function initMap() {
 
     var bounds = new google.maps.LatLngBounds;
