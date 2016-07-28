@@ -340,11 +340,11 @@ function initMap() {
           // container.appendChild(newDiv);
           // var finalString = document.createTextNode(finalDestination + finalDistance);
           // container.appendChild(finalString);
-//});
+
           // container.appendChild(document.createTextNode(liText));
         });
-      };
-
+  });
+};
 
 
     //closing showBtn
