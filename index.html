@@ -57,17 +57,27 @@
     <!-- <button id="directionsButton" type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#myModal">
       Show me Directions
     </button> -->
-    <div id = "routeInfo" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div id="output"></div>
-    </div>
-  </div>
-</div>
+    <div id = "routeInfo" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">This is what your PoA should've been a half hour ago.</h4>
+          </div>
+          <div class="modal-body">
+            <div id = "outputDiv"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id = "save" type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 <div class="footer">
   <!-- <div id="output"></div> -->
-  <button id = "save">Save Me!</button>
-</div>
+
+
 <div id="container">
   <button id = "showAll">Show Me!</button>
 </div>
