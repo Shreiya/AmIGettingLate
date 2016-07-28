@@ -5,8 +5,8 @@ console.log('i am alive');
 //         $("#askModal").modal();
 //     });
 
-// var url = "http://localhost:3000"; //For Local Dev
-var url = 'https://dry-caverns-14430.herokuapp.com' //For Heroku
+var url = "http://localhost:3000"; //For Local Dev
+// var url = 'https://dry-caverns-14430.herokuapp.com' //For Heroku
 var originList;
 var destinationList;
 var resultDistance;
@@ -310,8 +310,10 @@ function initMap() {
           console.log(time);
           var routeInfo = document.createTextNode(orig + " to " + dest + " in " + time + " covering " + dist + ".");
           console.log(routeInfo);
+          var deleteBtn = document.createElement('button');
           var newDiv = document.createElement('div');
           newDiv.appendChild(routeInfo);
+          newDiv.appendChild(deleteBtn);
           container.appendChild(newDiv);
 
 
