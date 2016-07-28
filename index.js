@@ -345,7 +345,7 @@ function initMap() {
           // container.appendChild(finalString);
 //});
           // container.appendChild(document.createTextNode(liText));
-        }
+        });
       });
 
 
