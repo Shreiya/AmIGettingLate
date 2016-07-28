@@ -328,7 +328,7 @@ function initMap() {
       console.log(response);
     }); // end ajax
   }); // end delete button
-    })
+};
 
   });
 
