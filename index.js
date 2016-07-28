@@ -326,12 +326,10 @@ function initMap() {
           container.appendChild(newDiv);
 
           $(document).ready(function(){
-              // $("#showBtn").click(function(){
+              $("#showBtn").click(function(){
                   $("#infoDiv").modal();
               //});
       });
-    };
-  });
 
   deleteBtn.addEventListener('click', function(){
     newDiv.innerHTML = "";
@@ -362,7 +360,7 @@ function initMap() {
           // container.appendChild(finalString);
 
           // container.appendChild(document.createTextNode(liText));
-
+        });
   });
 };
 
