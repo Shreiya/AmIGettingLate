@@ -328,7 +328,7 @@ function initMap() {
           $(document).ready(function(){
               $("#showBtn").click(function(){
                   $("#infoDiv").modal();
-              //});
+              });
       });
 
   deleteBtn.addEventListener('click', function(){
@@ -345,7 +345,7 @@ function initMap() {
   }); // end delete button
 };
 
-
+  });
 
 
           // newDiv.appendChild
@@ -362,6 +362,7 @@ function initMap() {
           // container.appendChild(document.createTextNode(liText));
         });
   });
+});
 };
 
 
