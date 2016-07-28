@@ -47,9 +47,8 @@ html, body {
   font-weight: 300;
 }
 
-.modal-content {
-  margin: 0 auto;
-  width: 500px;
-  height: 300px;
+#routeInfo {
+  width: 70vw;
+  height: 45vh;
   text-align: center;
 }
