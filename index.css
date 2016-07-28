@@ -49,6 +49,7 @@ html, body {
 
 .modal-content {
   margin: 0 auto;
-  width:inherit;
-  height:inherit;
+  width: 500px;
+  height: 300px;
+  text-align: center;
 }
