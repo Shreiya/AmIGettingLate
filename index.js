@@ -330,7 +330,7 @@ function initMap() {
                   $("#infoDiv").modal();
               //});
       });
-    });
+    };
   });
 
   deleteBtn.addEventListener('click', function(){
