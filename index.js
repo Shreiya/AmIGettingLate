@@ -346,15 +346,14 @@ function initMap() {
 //});
           // container.appendChild(document.createTextNode(liText));
         });
-      });
+      };
 
 
-    });//closing showBtn
+    //closing showBtn
 
 
-    });//closing the getting current position function
-
-}; //closing init map
+    //closing the getting current position function
+ //closing init map
 
 // var saveBtn = document.getElementById('save');
 // var container = document.getElementsByName('container');
