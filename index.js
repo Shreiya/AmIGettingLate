@@ -316,6 +316,22 @@ function initMap() {
           newDiv.appendChild(deleteBtn);
           container.appendChild(newDiv);
 
+  deleteBtn.addEventListener('click', function(){
+    newDiv.innerHTML = "";
+    $.ajax({
+      url: url + '/gettingLate/delete',
+      method: 'delete',
+      data: data,
+      dataType: 'json',
+    }).done(function(response){
+      console.log(deleteName + " has been deleted.");
+      console.log(response);
+    }); // end ajax
+  }); // end delete button
+    })
+
+  });
+
 
           // newDiv.appendChild
 
