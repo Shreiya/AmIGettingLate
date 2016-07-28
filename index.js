@@ -12,8 +12,9 @@ var container = document.getElementById('container');
 
 var options = {
     enableHighAccuracy: true,
-    timeout: 5000,container
+    timeout: 5000,
     maximumAge: 0
+
 };
 
 function success(pos) {
