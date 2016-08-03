@@ -34,12 +34,12 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-// function deleteMarkers(markersArray) {
-//     for (var i = 0; i < markersArray.length; i++) {
-//         markersArray[i].setMap(null);
-//     }
-//     markersArray = [];
-// }
+function deleteMarkers(markersArray) {
+    for (var i = 0; i < markersArray.length; i++) {
+        markersArray[i].setMap(null);
+    }
+    markersArray = [];
+}
 
 function initMap() {
 
