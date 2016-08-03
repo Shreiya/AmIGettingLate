@@ -1,12 +1,9 @@
 console.log('i am alive');
 
-// $(document).ready(function(){
-//     //$("#myBtn").click(function(){
-//         $("#askModal").modal();
-//     });
+
 
 // var url = "http://localhost:3000"; //For Local Dev
-var url = 'https://dry-caverns-14430.herokuapp.com/' //For Heroku
+var url = 'https://dry-caverns-14430.herokuapp.com' //For Heroku
 var originList;
 var destinationList;
 var resultDistance;
@@ -17,6 +14,7 @@ var options = {
     enableHighAccuracy: true,
     timeout: 5000,
     maximumAge: 0
+
 };
 
 function success(pos) {
@@ -40,6 +38,11 @@ function deleteMarkers(markersArray) {
     }
     markersArray = [];
 }
+
+$(document).ready(function(){
+    //$("#myBtn").click(function(){
+        $("#askModal").modal();
+    });
 
 function initMap() {
 
@@ -223,13 +226,18 @@ function initMap() {
                                     ", it's going to take you " + results[j].duration.text + " since you're traveling "
                                     + results[j].distance.text + ".");
                                     outputDiv.appendChild(directionsInfo);
+
+                                    $(document).ready(function(){
+                                        //$("#myBtn").click(function(){
+                                            $("#routeInfo").modal();
+                                        });
                                 }
 
                             }
                         };
-
-                        var directions = document.getElementById('directionsButton');
-                        directions.addEventListener('click',showDirections());
+                          showDirections();
+                        // var directions = document.getElementById('directionsButton');
+                        // directions.addEventListener('click',showDirections());
                         //closing the event listener
 
                     }
@@ -267,7 +275,7 @@ function initMap() {
       console.log(destinationList);
       container.innerHTML = "";
 
-      var data = {
+      window.data = {
         origin : originList,
         destination : destinationList,
         time : resultDuration,
@@ -310,9 +318,34 @@ function initMap() {
           console.log(time);
           var routeInfo = document.createTextNode(orig + " to " + dest + " in " + time + " covering " + dist + ".");
           console.log(routeInfo);
+          var deleteBtn = document.createElement('button');
+          deleteBtn.className = "delete";
           var newDiv = document.createElement('div');
           newDiv.appendChild(routeInfo);
+          newDiv.appendChild(deleteBtn);
           container.appendChild(newDiv);
+
+          $(document).ready(function(){
+              $("#showBtn").click(function(){
+                  $("#infoDiv").modal();
+              });
+      });
+
+  deleteBtn.addEventListener('click', function(){
+    newDiv.innerHTML = "";
+    $.ajax({
+      url: url + '/gettingLate/delete',
+      method: 'delete',
+      data: data,
+      dataType: 'json',
+    }).done(function(response){
+      console.log(deleteName + " has been deleted.");
+      console.log(response);
+    }); // end ajax
+  }); // end delete button
+};
+
+  });
 
 
           // newDiv.appendChild
@@ -325,18 +358,19 @@ function initMap() {
           // container.appendChild(newDiv);
           // var finalString = document.createTextNode(finalDestination + finalDistance);
           // container.appendChild(finalString);
-//});
+
           // container.appendChild(document.createTextNode(liText));
-        }
-      });
+        });
+  });
+
+};
 
 
-    });//closing showBtn
+    //closing showBtn
 
 
-    });//closing the getting current position function
-
-}; //closing init map
+    //closing the getting current position function
+ //closing init map
 
 // var saveBtn = document.getElementById('save');
 // var container = document.getElementsByName('container');
