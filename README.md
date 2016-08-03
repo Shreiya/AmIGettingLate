@@ -26,10 +26,10 @@ This app was created in 2 days and as comfortable as it is to work with the goog
 
 ## As of now, the app uses -
 
-Google Maps API
-Google Maps Geolocation
-Google Maps Geo-coder
-Google Maps Distance Matrix
-Google Maps Places Search
+Google Maps API<br/>
+Google Maps Geolocation<br/>
+Google Maps Geo-coder<br/>
+Google Maps Distance Matrix<br/>
+Google Maps Places Search<br/>
 
 Bootstrap for JS.
