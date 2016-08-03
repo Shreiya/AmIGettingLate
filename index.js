@@ -9,6 +9,7 @@ var destinationList;
 var resultDistance;
 var resultDuration;
 var container = document.getElementById('container');
+var refresh = document.getElementById('refrehs');
 
 var options = {
     enableHighAccuracy: true,
@@ -85,9 +86,11 @@ function initMap() {
         var destination_input = document.getElementById('destination-input');
         var modes = document.getElementById('mode-selector');
 
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(modes);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(origin_input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(destination_input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(modes);
+
 
         var origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
         origin_autocomplete.bindTo('bounds', map);
@@ -176,6 +179,7 @@ function initMap() {
                     } else {
                         window.originList = response.originAddresses;
                         window.destinationList = response.destinationAddresses;
+
                         var outputDiv = document.getElementById('output');
                         var saveButton = document.getElementById('saveMe');
                         //outputDiv.innerHTML = '';
@@ -188,12 +192,14 @@ function initMap() {
 
                                     // deleteMarkers();
 
-                                    map.fitBounds(bounds.extend(results[0].geometry.location));
-                                    markersArray.push(new google.maps.Marker({
-                                        map: map,
-                                        position: results[0].geometry.location,
-                                        //icon: icon
-                                    }));
+                                    // map.fitBounds(bounds.extend(results[0].geometry.location));
+                                    // markersArray.push(new google.maps.Marker({
+                                    //     map: map,
+                                    //     position: results[0].geometry.location,
+                                    //     animation: google.maps.Animation.BOUNCE
+                                    //     //icon: icon
+                                    // }));
+
                                 } else {
                                     alert('Geocode was not successful due to: ' + status);
                                 }
@@ -331,18 +337,36 @@ function initMap() {
               });
       });
 
-  deleteBtn.addEventListener('click', function(){
+
+
+      var deleteThis = function() {
+      $.ajax({
+        url: url + '/gettingLate/delete',
+        method: 'delete',
+        data: data,
+        dataType: 'json',
+      }).done(function(response){
+        console.log("route has been deleted.");
+        console.log(response);
+      }); // end ajax
+    };
+
+  deleteBtn.addEventListener('click', function() {
+    deleteThis();
     newDiv.innerHTML = "";
-    $.ajax({
-      url: url + '/gettingLate/delete',
-      method: 'delete',
-      data: data,
-      dataType: 'json',
-    }).done(function(response){
-      console.log(deleteName + " has been deleted.");
-      console.log(response);
-    }); // end ajax
-  }); // end delete button
+  });
+
+    // newDiv.innerHTML = "";
+    // $.ajax({
+    //   url: url + '/gettingLate/delete',
+    //   method: 'delete',
+    //   data: data,
+    //   dataType: 'json',
+    // }).done(function(response){
+    //   console.log("route has been deleted.");
+    //   console.log(response);
+    // }); // end ajax);
+    // end delete button
 };
 
   });
